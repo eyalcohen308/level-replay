@@ -15,12 +15,6 @@ git clone https://github.com/facebookresearch/level-replay.git
 cd level-replay
 pip install -r requirements.txt
 
-# Clone a level-replay-compatible version of OpenAI Baselines.
-git clone https://github.com/minqi/baselines.git
-cd baselines 
-python setup.py install
-cd ..
-
 # Clone level-replay-compatible versions of Procgen and MiniGrid environments.
 git clone https://github.com/minqi/procgen.git
 cd procgen 
@@ -33,31 +27,18 @@ pip install -e .
 cd ..
 ```
 
-Note that you may run into cmake finding an incompatible version of g++. You can manually specify the path to a compatible g++ by setting the path to the right compiler in `procgen/procgen/CMakeLists.txt` before the line `project(codegen)`:
+## Training
+For training the model use the runing shell script as follow:
 ```
-...
-# Manually set the c++ compiler here
-set(CMAKE_CXX_COMPILER "/share/apps/gcc-9.2.0/bin/g++")
-
-project(codegen)
-...
+./run_script <type_of_loss> <serial_number_of_maze_type>
 ```
-
-## Examples
-### Train PPO with value-based level reply with rank prioritization on BigFish
+types of loss: [1: "l1", 2: "uniform"]
+types of maze: [1: "Multiroom-N4-Random", 2: "ObstructedMazeGamut-Easy", 3: "ObstructedMazeGamut-Medium"]
+### Running example
 ```
-python -m train --env_name bigfish \
---num_processes=64 \
---level_replay_strategy='value_l1' \
---level_replay_score_transform='rank' \
---level_replay_temperature=0.1 \
---staleness_coef=0.1
+./run_script uniform 2
 ```
-
-## Procgen Benchmark results
-Prioritized Level Replay results in statistically significant (★) improvements to generalization and sample-efficiency on most of the games in the Procgen Benchmark.
-
-![Procgen results](docs/procgen-results.png)
+will train the model with ppo algorithm, l1 loss and on "ObstructedMazeGamut-Easy" maze.
 
 ## MiniGrid results
 Likewise, Prioritized Level Replay results in drastic improvements to hard exploration environments in MiniGrid. On MiniGrid, we directly observe that the selective sampling employed by this method induces an implicit curriculum over levels from easier to harder levels.
