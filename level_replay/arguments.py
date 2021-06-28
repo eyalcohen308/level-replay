@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='RL')
 parser.add_argument(
     '--lr', 
     type=float, 
-    default=5e-4, 
+    default=7e-4, 
     help='learning rate')
 parser.add_argument(
     '--eps',
@@ -78,7 +78,7 @@ parser.add_argument(
 parser.add_argument(
     '--ppo_epoch',
     type=int,
-    default=3,
+    default=4,
     help='number of ppo epochs')
 parser.add_argument(
     '--num_mini_batch',
@@ -168,13 +168,14 @@ parser.add_argument(
 parser.add_argument(
     "--level_replay_score_transform",
     type=str, 
-    default='softmax', 
+    default='rank', 
     choices=['constant', 'max', 'eps_greedy', 'rank', 'power', 'softmax'], 
     help="Level replay scoring strategy")
 parser.add_argument(
     "--level_replay_temperature", 
     type=float,
-    default=1.0,
+    ## maybe should be 1.0
+    default=0.1,
     help="Level replay scoring strategy")
 parser.add_argument(
     "--level_replay_strategy", 
@@ -210,7 +211,7 @@ parser.add_argument(
 parser.add_argument(
     "--staleness_coef",
     type=float, 
-    default=0.0,
+    default=0.3,
     help="Staleness weighing")
 parser.add_argument(
     "--staleness_transform",
