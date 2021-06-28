@@ -11,7 +11,7 @@ import gym
 import torch
 from gym.spaces.box import Box
 from gym_minigrid.wrappers import *
-from procgen import ProcgenEnv
+# from procgen import ProcgenEnv
 from baselines.common.vec_env import VecEnvWrapper, VecExtractDictObs, VecMonitor, VecNormalize, SubprocVecEnv
 
 from custom_envs import ObstructedMazeGamut

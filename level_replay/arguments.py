@@ -106,7 +106,7 @@ parser.add_argument(
     help='name for the run - prefix to log files')
 parser.add_argument(
     '--log_dir',
-    default='~/logs/ppo/',
+    default='./logs/ppo/',
     help='directory to save agent logs')
 parser.add_argument(
     '--no_cuda',
@@ -232,7 +232,7 @@ parser.add_argument(
 parser.add_argument(
     '--log_interval',
     type=int,
-    default=1,
+    default=100,
     help='log interval, one log per n updates')
 parser.add_argument(
     "--save_interval", 

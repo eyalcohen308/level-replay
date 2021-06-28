@@ -16,7 +16,7 @@ from level_replay import utils
 from level_replay.model import model_for_env_name
 from level_replay.level_sampler import LevelSampler
 
-from procgen import ProcgenEnv
+# from procgen import ProcgenEnv
 from baselines.common.vec_env import (
     VecExtractDictObs,
     VecMonitor,

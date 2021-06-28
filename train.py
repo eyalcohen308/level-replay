@@ -33,7 +33,7 @@ last_checkpoint_time = None
 def train(args, seeds):
     global last_checkpoint_time
     args.cuda = not args.no_cuda and torch.cuda.is_available()
-    device = torch.device("cuda:0" if args.cuda else "cpu")
+    device = torch.device("cuda:1" if args.cuda else "cpu")
     if 'cuda' in device.type:
         print('Using CUDA\n')
 
