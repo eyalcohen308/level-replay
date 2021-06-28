@@ -32,8 +32,15 @@ For training the model use the runing shell script as follow:
 ```
 ./run_script <type_of_loss> <serial_number_of_maze_type>
 ```
-types of loss: [1: "l1", 2: "uniform"]
-types of maze: [1: "Multiroom-N4-Random", 2: "ObstructedMazeGamut-Easy", 3: "ObstructedMazeGamut-Medium"]
+#### Types of loss:
+1. l1
+2. uniform
+
+#### Types of maze:
+1. Multiroom-N4-Random
+2. ObstructedMazeGamut-Easy
+3. ObstructedMazeGamut-Medium
+
 ### Running example
 ```
 ./run_script uniform 2
