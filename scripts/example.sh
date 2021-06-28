@@ -21,7 +21,7 @@ else
 		--verbose \
 		--xpid "l1_${env_name}_debug"\
 
-	elif [ "$1" == "uniforn" ]; then
+	elif [ "$1" == "uniform" ]; then
 		echo "uniform"
 		python -m train --env_name $env_name\
 		--num_processes=64 \
@@ -30,6 +30,7 @@ else
 		--staleness_coef=0.1 \
 		--verbose \
 		--xpid "uniform_${env_name}_debug"\
+
 	else
 		echo "please add 'l1' or 'unfiform' as arguments"
 	fi
