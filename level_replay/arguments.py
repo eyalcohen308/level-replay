@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser(description='RL')
 parser.add_argument(
     '--lr', 
     type=float, 
-    default=7e-4, 
+    default=5e-4, 
     help='learning rate')
 parser.add_argument(
     '--eps',
@@ -78,7 +78,7 @@ parser.add_argument(
 parser.add_argument(
     '--ppo_epoch',
     type=int,
-    default=4,
+    default=3,
     help='number of ppo epochs')
 parser.add_argument(
     '--num_mini_batch',
@@ -92,7 +92,7 @@ parser.add_argument(
     help='ppo clip parameter')
 parser.add_argument(
     '--num_env_steps',
-    type=int,
+    type=lambda x: int(float(x)),
     default=25e6,
     help='number of environment steps to train')
 parser.add_argument(
@@ -112,6 +112,11 @@ parser.add_argument(
     '--no_cuda',
     action='store_true',
     default=False,
+    help='disables CUDA training')
+parser.add_argument(
+    '--cuda_id',
+    type=int,
+    default=0,
     help='disables CUDA training')
 parser.add_argument(
     '--hidden_size',
@@ -168,14 +173,13 @@ parser.add_argument(
 parser.add_argument(
     "--level_replay_score_transform",
     type=str, 
-    default='rank', 
+    default='softmax', 
     choices=['constant', 'max', 'eps_greedy', 'rank', 'power', 'softmax'], 
     help="Level replay scoring strategy")
 parser.add_argument(
     "--level_replay_temperature", 
     type=float,
-    ## maybe should be 1.0
-    default=0.1,
+    default=1.0,
     help="Level replay scoring strategy")
 parser.add_argument(
     "--level_replay_strategy", 
@@ -211,7 +215,7 @@ parser.add_argument(
 parser.add_argument(
     "--staleness_coef",
     type=float, 
-    default=0.3,
+    default=0.0,
     help="Staleness weighing")
 parser.add_argument(
     "--staleness_transform",
