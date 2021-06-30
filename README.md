@@ -50,8 +50,8 @@ will train the model with ppo algorithm, l1 loss and on "ObstructedMazeGamut-Eas
 ## MiniGrid results
 Likewise, Prioritized Level Replay results in drastic improvements to hard exploration environments in MiniGrid. On MiniGrid, we directly observe that the selective sampling employed by this method induces an implicit curriculum over levels from easier to harder levels.
 
-![MiniGrid results](docs/minigrid-results.png)
-
+![Paper MiniGrid results](figures/paper_results.png)
+![Our MiniGrid results](figures/our_results.png)
 ## Acknowledgements
 The PPO implementation is largely based on Ilya Kostrikov's excellent implementation (https://github.com/ikostrikov/pytorch-a2c-ppo-acktr-gail) and Roberta Raileanu's specific integration with Procgen (https://github.com/rraileanu/auto-drac).
 
