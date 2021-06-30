@@ -16,7 +16,6 @@ src/
 data/
 saved_models/
 images/
-figures/
 
 baselines/
 babyai/
